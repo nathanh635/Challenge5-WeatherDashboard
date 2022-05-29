@@ -1,0 +1,86 @@
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header {
+    padding: 10px;
+    background-image: linear-gradient(to right,
+        rgb(146, 242, 255), rgb(46, 22, 151)
+    );
+    color: white;
+    text-align: center;
+}
+
+.card {
+    background-color: rgb(38, 59, 83);
+    color: white;
+    padding: 10px;
+    margin-left: 25px;
+    margin-left: 25px;
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card-title {
+    font-size: 24px;
+}
+
+.overall {
+    display: flex;
+    flex-direction: row;
+}
+
+.uvIndex {
+    background-color: green;
+    color: white;
+}
+
+.banner {
+    color: black;
+    padding: 20px;
+    border: 1px solid black;
+    margin: 25px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+aside {
+    margin: 25px;
+}
+
+#searchButton {
+    background-color:   rgb(146, 242, 255);
+    color: white;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.cities {
+    background-color: grey;
+    border-radius: 5px;
+    text-align: center;
+ }
+
+.city {
+    font-size: 16px;
+    padding: 5px;
+}
+
+#today {
+    font-size: 30px;
+    margin-top: 0px;
+}
+
+.card-title {
+    margin-top: 0px;
+}
