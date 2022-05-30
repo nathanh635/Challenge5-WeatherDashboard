@@ -12,100 +12,108 @@ let weatherData = [
     humid: "-"
 }]
 
-// function findCity() {
+function findCity() {
 
-// let activeCityUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + activeCity + "&limit=1&appid=cf5728f7192109047f46caf76889e377";
+let activeCityUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + activeCity + "&limit=1&appid=cf5728f7192109047f46caf76889e377";
 
-// fetch(activeCityUrl)
-// .then(function (response) {
-//   console.log(response);
-//   //  Conditional for the the response.status.
-//   if (response.status !== 200) {
-//     // Place the response.status on the page.
-//     responseText.textContent = response.status;
-//   }
-//   return response.json();
-// })
-// .then(function (data) {
+fetch(activeCityUrl)
+.then(function (response) {
+  console.log(response);
+  return response.json();
+})
+.then(function (data) {
 
-//   console.log(data);
-// });
-
-// }
+  console.log(data);
+  let lat = data[0].lat;
+  let long = data[0].lon;
+  return [lat, long];
+});
+}
 
 function getApi(requestUrl) {
   fetch(requestUrl)
-    .then(function (response) {
+  .then(function (response) {
+  if (response.ok) {
+    console.log(response);
+    response.json().then(function (data) {
       console.log(data);
-      return response.json();
+      return data;
     } 
 )
 }
+})
+}
 
-function getWeatherData (city) {
+function getWeatherData (location) {
 
-//var requestUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude + "&lon=" + longitude + "&exclude=" + part + "&appid=cf5728f7192109047f46caf76889e377";
-let requestUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + city + "&appid=cf5728f7192109047f46caf76889e377";
+let requestUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + location[0] + "&lon=" + location[1] + "&exclude=hourly&appid=cf5728f7192109047f46caf76889e377";
+
 getApi(requestUrl);
 
-
 }
 
 
 
-function displayWeather(data) {
+// // function displayWeather(data) {
 
 
-//for ...
+// // //for ...
 
-if (i = 0) {
+// // if (i = 0) {
 
-}
-}
-
-
-
-/* if data.current.uvi >= 7
-  background color = red
-  Else if UV index >= 4 - yellow
-  Else green
+// // }
+// // }
 
 
 
-  /* when searching cities, autocomplete?
+// /* if data.current.uvi >= 7
+//   background color = red
+//   Else if UV index >= 4 - yellow
+//   Else green
 
-  populate banner and cards with data from city when selected
+
+
+//   /* when searching cities, autocomplete?
+
+//   populate banner and cards with data from city when selected
   
-  update UV index color
+//   update UV index color
   
-  if no cities, display "--" for all data
+//   if no cities, display "--" for all data
 
-  if statement for weather condition icon?
-  */
+//   if statement for weather condition icon?
+//   */
 
-  searchButton.addEventListener("click", searchCity());
+
 
   function searchCity() {
     let searchVal = searchBox.value.trim();
     citiesSearched.unshift(searchVal);
     localStorage.setItem("citiesSearched", JSON.stringify(citiesSearched));
     activeCity = searchVal;
-    getWeatherData(activeCity);
+    console.log(activeCity)
+    if (!activeCity) {
 
+    } else {
+      let location = findCity(activeCity);
+      getWeatherData(location);
+  }
   }
 
-//   function init()
- 
-//  // citiesSearched = JSON.parse(localStorage.getItem("citiesSearched"));
+  searchButton.addEventListener("click", searchCity);
 
-//   for (let i = 0; i <citiesSearched.length; i++) {
-//     var city = document.createElement('p');
-//     citiesList.append(city);
-//  }  
+// //   function init()
+ 
+// //  // citiesSearched = JSON.parse(localStorage.getItem("citiesSearched"));
+
+// //   for (let i = 0; i <citiesSearched.length; i++) {
+// //     var city = document.createElement('p');
+// //     citiesList.append(city);
+// //  }  
   
 
-//  $(".saveBtn").on('click',function() {
-//   var t = (this.id);
-//   schedule[t] = formEl.eq(t).val();
-//   localStorage.setItem("schedule", JSON.stringify(schedule));
-// });  
+// //  $(".saveBtn").on('click',function() {
+// //   var t = (this.id);
+// //   schedule[t] = formEl.eq(t).val();
+// //   localStorage.setItem("schedule", JSON.stringify(schedule));
+// // });  
