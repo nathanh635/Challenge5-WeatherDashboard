@@ -24,9 +24,8 @@ fetch(activeCityUrl)
 .then(function (data) {
 
   console.log(data);
-  let lat = data[0].lat;
-  let long = data[0].lon;
-  return [lat, long];
+  let location = [data[0].lat, data[0].lon]
+  getWeatherData(location);
 });
 }
 
@@ -34,7 +33,6 @@ function getApi(requestUrl) {
   fetch(requestUrl)
   .then(function (response) {
   if (response.ok) {
-    console.log(response);
     response.json().then(function (data) {
       console.log(data);
       return data;
@@ -51,8 +49,6 @@ let requestUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + locati
 getApi(requestUrl);
 
 }
-
-
 
 // // function displayWeather(data) {
 
@@ -95,8 +91,9 @@ getApi(requestUrl);
     if (!activeCity) {
 
     } else {
-      let location = findCity(activeCity);
-      getWeatherData(location);
+  findCity(activeCity);
+
+ 
   }
   }
 
