@@ -77,6 +77,10 @@ aside {
     border-radius: 5px;
 }
 
+.city:hover {
+    cursor:pointer;
+}
+
 #today {
     font-size: 30px;
     margin-top: 0px;
