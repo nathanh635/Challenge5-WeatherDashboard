@@ -3,7 +3,8 @@
 }
 
 header {
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     background-image: linear-gradient(to right,
         rgb(146, 242, 255), rgb(46, 22, 151)
     );
@@ -21,7 +22,7 @@ header {
 
 
 main {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-around;
 }
@@ -33,11 +34,6 @@ main {
 .overall {
     display: flex;
     flex-direction: row;
-}
-
-.uvIndex {
-    background-color: green;
-    color: white;
 }
 
 .banner {
@@ -55,6 +51,7 @@ main {
 
 aside {
     margin: 25px;
+
 }
 
 #searchButton {
@@ -63,6 +60,8 @@ aside {
     width: 100%;
     border-radius: 5px;
     font-size: 16px;
+    padding: 5px;
+    margin: 5px;
 }
 
 .cities {
@@ -74,6 +73,8 @@ aside {
 .city {
     font-size: 16px;
     padding: 5px;
+    background-color: rgb(202, 202, 202);
+    border-radius: 5px;
 }
 
 #today {
@@ -83,4 +84,8 @@ aside {
 
 .card-title {
     margin-top: 0px;
+}
+
+#uvIndex {
+    width: 130px;
 }
