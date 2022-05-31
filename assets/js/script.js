@@ -15,7 +15,7 @@ let main = document.querySelector("main");
 //find the city's latitude and longitude using the geolocator API
 function findCity() {
 
-let activeCityUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + activeCity + "&limit=1&appid=cf5728f7192109047f46caf76889e377";
+let activeCityUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + activeCity + "&limit=1&appid=cf5728f7192109047f46caf76889e377";
 
 fetch(activeCityUrl)
 .then(function (response) {
